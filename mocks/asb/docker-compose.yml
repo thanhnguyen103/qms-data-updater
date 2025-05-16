@@ -13,19 +13,17 @@ services:
       ACCEPT_EULA: ${ACCEPT_EULA}
     depends_on:
       - sqledge
-    networks:
-      sb-emulator:
-        aliases:
-          - "sb-emulator"
+
   sqledge:
-        container_name: "sqledge"
-        image: "mcr.microsoft.com/azure-sql-edge:latest"
-        networks:
-          sb-emulator:
-            aliases:
-              - "sqledge"
-        environment:
-          ACCEPT_EULA: ${ACCEPT_EULA}
-          MSSQL_SA_PASSWORD: ${MSSQL_SA_PASSWORD}
+    container_name: "sqledge"
+    image: "mcr.microsoft.com/azure-sql-edge:latest"
+    ports:
+      - "1434:1433"
+    environment:
+      ACCEPT_EULA: ${ACCEPT_EULA}
+      MSSQL_SA_PASSWORD: ${MSSQL_SA_PASSWORD}
+
 networks:
-  sb-emulator:
+  podman:
+    external: true
+    name: podman

@@ -1,0 +1,21 @@
+{
+  "UserCertificateGUID": "b1a7e1d2-3c4f-4b5a-8e2d-1c2b3a4d5e6f",
+  "CertificateGUID": "a2b3c4d5-e6f7-4a8b-9c0d-1e2f3a4b5c6d",
+  "UserGUID": "c3d4e5f6-7a8b-4c9d-0e1f-2a3b4c5d6e7f",
+  "LicenseNumber": "LIC-123456",
+  "IssuingCountry": "USA",
+  "Grade": "A",
+  "Trainer": "John Doe",
+  "Hours": "40",
+  "RequireApproval": true,
+  "IsOfficial": true,
+  "Notes": "Completed with distinction.",
+  "TimeZone": "UTC-5",
+  "SuspensionType": null,
+  "CompletedDate": "2024-05-01T10:00:00Z",
+  "ExpiryDate": "2026-05-01T10:00:00Z",
+  "IsLatest": true,
+  "CreatedDate": "2024-05-01T10:00:00Z",
+  "DeletedDate": null,
+  "LastUpdatedDate": "2024-05-01T10:00:00Z"
+}

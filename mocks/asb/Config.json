@@ -2,7 +2,7 @@
   "UserConfig": {
     "Namespaces": [
       {
-        "Name": "sbemulatorns",
+        "Name": "sbemulators",
         "Queues": [
           {
             "Name": "queue.1",
@@ -101,7 +101,7 @@
       }
     ],
     "Logging": {
-      "Type": "File"
+      "Type": "Console"
     }
   }
 }

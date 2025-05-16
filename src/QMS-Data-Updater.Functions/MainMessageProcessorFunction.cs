@@ -27,7 +27,7 @@ public class MainMessageProcessorFunction
         [ServiceBusTrigger(
             "%ServiceBusTopicName%",
             "%ServiceBusSubscriptionName%",
-            Connection = "ServiceBusConnection")]
+            Connection = "ServiceBusConnectionString")]
         ServiceBusReceivedMessage message,
         ServiceBusMessageActions messageActions)
     {

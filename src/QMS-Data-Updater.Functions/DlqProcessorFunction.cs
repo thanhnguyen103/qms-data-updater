@@ -17,16 +17,24 @@ public class DlqProcessorFunction
 
     [Function(nameof(DlqProcessorFunction))]
     public async Task Run(
-        [ServiceBusTrigger("mytopic", "mysubscription", Connection = "")]
+        [ServiceBusTrigger(
+            "%ServiceBusTopicName%",
+            "%ServiceBusSubscriptionName%/$DeadLetterQueue",
+            Connection = "ServiceBusConnectionString")]
         ServiceBusReceivedMessage message,
         ServiceBusMessageActions messageActions)
     {
-        _logger.LogInformation("Message ID: {id}", message.MessageId);
-        _logger.LogInformation("Message Body: {body}", message.Body);
-        _logger.LogInformation("Message Content-Type: {contentType}", message.ContentType);
+        _logger.LogWarning("DLQ Message ID: {id}", message.MessageId);
+        _logger.LogWarning("DLQ Message Body: {body}", message.Body);
+        _logger.LogWarning("DLQ Message Content-Type: {contentType}", message.ContentType);
 
-        // Complete the message
+        // Optionally log DLQ properties
+        foreach (var prop in message.ApplicationProperties)
+        {
+            _logger.LogWarning("DLQ Property: {key} = {value}", prop.Key, prop.Value);
+        }
+
+        // Complete the message to remove it from the DLQ
         await messageActions.CompleteMessageAsync(message);
-        
     }
 }
