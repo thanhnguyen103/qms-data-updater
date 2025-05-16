@@ -1,0 +1,12 @@
+{
+    // Recommended VS Code extensions for Azure Functions development
+    "recommendations": [
+        "ms-azuretools.vscode-azurefunctions",
+        "ms-azuretools.vscode-azurestorage",
+        "bierner.markdown-mermaid",
+        "streetsidesoftware.code-spell-checker",
+        "davidanson.vscode-markdownlint",
+        "alefragnani.Bookmarks",
+        "jmrog.vscode-nuget-package-manager"
+    ]
+}

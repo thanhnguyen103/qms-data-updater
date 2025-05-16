@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMS-Data-Updater.Functions", "src\QMS-Data-Updater.Functions\QMS-Data-Updater.Functions.csproj", "{56F797EF-2401-4460-8B76-33FA269FB707}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMS-Data-Updater.Domain", "src\QMS-Data-Updater.Domain\QMS-Data-Updater.Domain.csproj", "{E91E90FF-6D38-44EF-87D0-27A2CB042783}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMS-Data-Updater.Application", "src\QMS-Data-Updater.Application\QMS-Data-Updater.Application.csproj", "{5C35E40B-359B-444A-80AA-4B79170C57B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMS-Data-Updater.Infrastructure", "src\QMS-Data-Updater.Infrastructure\QMS-Data-Updater.Infrastructure.csproj", "{8B803E79-83DD-42C1-87B9-08FD3A103C16}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{56F797EF-2401-4460-8B76-33FA269FB707}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56F797EF-2401-4460-8B76-33FA269FB707}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56F797EF-2401-4460-8B76-33FA269FB707}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56F797EF-2401-4460-8B76-33FA269FB707}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E91E90FF-6D38-44EF-87D0-27A2CB042783}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E91E90FF-6D38-44EF-87D0-27A2CB042783}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E91E90FF-6D38-44EF-87D0-27A2CB042783}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E91E90FF-6D38-44EF-87D0-27A2CB042783}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C35E40B-359B-444A-80AA-4B79170C57B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C35E40B-359B-444A-80AA-4B79170C57B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C35E40B-359B-444A-80AA-4B79170C57B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C35E40B-359B-444A-80AA-4B79170C57B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B803E79-83DD-42C1-87B9-08FD3A103C16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B803E79-83DD-42C1-87B9-08FD3A103C16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B803E79-83DD-42C1-87B9-08FD3A103C16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B803E79-83DD-42C1-87B9-08FD3A103C16}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -6,16 +6,16 @@ using Microsoft.Extensions.Logging;
 
 namespace QMS_Data_Updater.Functions;
 
-public class UserCertificateEventHandler
+public class DlqProcessorFunction
 {
-    private readonly ILogger<UserCertificateEventHandler> _logger;
+    private readonly ILogger<DlqProcessorFunction> _logger;
 
-    public UserCertificateEventHandler(ILogger<UserCertificateEventHandler> logger)
+    public DlqProcessorFunction(ILogger<DlqProcessorFunction> logger)
     {
         _logger = logger;
     }
 
-    [Function(nameof(UserCertificateEventHandler))]
+    [Function(nameof(DlqProcessorFunction))]
     public async Task Run(
         [ServiceBusTrigger("mytopic", "mysubscription", Connection = "")]
         ServiceBusReceivedMessage message,
