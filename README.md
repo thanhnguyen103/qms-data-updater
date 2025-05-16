@@ -211,3 +211,11 @@ graph TD
           * Stores local development settings like Service Bus connection strings, database connection strings, and other application settings. **Do not commit this file if it contains secrets.** Use environment variables or managed identities in Azure.
 
 This architecture and project structure provide a robust foundation for your Azure Functions solution, emphasizing resilience and effective DLQ management. Remember to thoroughly test your error handling and DLQ processing logic.
+
+### Build the image
+
+Execute below command at the project's root folder
+
+```sh
+podman build --pull --rm -f docker/Dockerfile -t qmsdataupdater:latest .
+```

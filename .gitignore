@@ -401,3 +401,11 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# Azurite
+__azurite*
+__blob*
+__table*
+__queue*
+
+AzuriteConfig

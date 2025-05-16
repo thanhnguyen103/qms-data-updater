@@ -35,21 +35,26 @@ public class MainMessageProcessorFunction
         {
             _logger.LogInformation("Message ID: {id}", message.MessageId);
             _logger.LogInformation("Message Body: {body}", message.Body);
-            _logger.LogInformation("Message Content-Type: {contentType}", message.ContentType);
 
-            if (!message.ApplicationProperties.TryGetValue("eventType", out var eventTypeObj) ||
-                eventTypeObj is not string eventType)
+            // Get the message body as a string
+            string payload = message.Body.ToString();
+
+            // Parse the message body as JSON to extract eventType from content.eventType
+            using var doc = JsonDocument.Parse(payload);
+            if (!doc.RootElement.TryGetProperty("content", out var contentElement) ||
+                !contentElement.TryGetProperty("eventType", out var eventTypeElement) ||
+                eventTypeElement.ValueKind != JsonValueKind.String)
             {
-                _logger.LogError("Missing or invalid eventType property.");
+                _logger.LogError("Missing or invalid eventType property in message body content.");
                 await messageActions.DeadLetterMessageAsync(message, new Dictionary<string, object>
                 {
                     { "DeadLetterReason", "MissingEventType" },
-                    { "DeadLetterErrorDescription", "The eventType property is missing or invalid." }
+                    { "DeadLetterErrorDescription", "The eventType property is missing or invalid in the message body content." }
                 });
                 return;
             }
 
-            var payload = message.Body.ToString();
+            string eventType = eventTypeElement.GetString()!;
 
             IRequest<IOperationResult>? request = eventType switch
             {
@@ -102,6 +107,17 @@ public class MainMessageProcessorFunction
                 { "OriginalExceptionType", ex.GetType().ToString() },
                 { "OriginalExceptionMessage", ex.Message }
             });
+        }
+
+        if (message.DeliveryCount > 5) // for example, limit to 5 attempts
+        {
+            _logger.LogWarning("Message {MessageId} exceeded max delivery attempts. Sending to DLQ.", message.MessageId);
+            await messageActions.DeadLetterMessageAsync(message, new Dictionary<string, object>
+            {
+                { "DeadLetterReason", "MaxDeliveryAttemptsExceeded" },
+                { "DeadLetterErrorDescription", "The message exceeded the maximum number of delivery attempts." }
+            });
+            return;
         }
     }
     

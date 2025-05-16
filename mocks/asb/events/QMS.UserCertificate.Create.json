@@ -1,21 +1,34 @@
 {
-  "UserCertificateGUID": "b1a7e1d2-3c4f-4b5a-8e2d-1c2b3a4d5e6f",
-  "CertificateGUID": "a2b3c4d5-e6f7-4a8b-9c0d-1e2f3a4b5c6d",
-  "UserGUID": "c3d4e5f6-7a8b-4c9d-0e1f-2a3b4c5d6e7f",
-  "LicenseNumber": "LIC-123456",
-  "IssuingCountry": "USA",
-  "Grade": "A",
-  "Trainer": "John Doe",
-  "Hours": "40",
-  "RequireApproval": true,
-  "IsOfficial": true,
-  "Notes": "Completed with distinction.",
-  "TimeZone": "UTC-5",
-  "SuspensionType": null,
-  "CompletedDate": "2024-05-01T10:00:00Z",
-  "ExpiryDate": "2026-05-01T10:00:00Z",
-  "IsLatest": true,
-  "CreatedDate": "2024-05-01T10:00:00Z",
-  "DeletedDate": null,
-  "LastUpdatedDate": "2024-05-01T10:00:00Z"
+  "eventSource": "QMS",
+  "content": {
+    "id": "90ea598e-9ba4-4678-9afe-7ad5c6dfbfaf",
+    "topic": "/subscriptions/ad52f69c-5a80-4ac5-ad8f-9ca41a9a6013/resourceGroups/tmc-cac-p-qms-api-svc/providers/Microsoft.EventGrid/topics/tmc-cac-p-qms-api-svc",
+    "subject": "/qms/a818f03b-0923-46a4-aad0-ff69ebbcfa44/usercertificate/128a3cd8-0be7-4479-9474-981dfbb39d9b",
+    "data": {
+      "Id": "128a3cd8-0be7-4479-9474-981dfbb39d9b",
+      "TenantId": "a818f03b-0923-46a4-aad0-ff69ebbcfa44",
+      "Type": "UserCertificate",
+      "Event": "Create",
+      "Data": {
+        "id": "128a3cd8-0be7-4479-9474-981dfbb39d9b",
+        "userId": "c1fc4d5d-14ed-4bfa-89a6-a6d33ba7f8a7",
+        "certificateId": "f5220dfd-6b4d-4c4e-a5f6-3ae6127d5019",
+        "licenseNumber": null,
+        "issuingCountry": null,
+        "grade": null,
+        "trainer": null,
+        "hours": null,
+        "requireApproval": false,
+        "isOfficial": true,
+        "notes": null,
+        "timeZone": "Etc/UTC",
+        "suspensionType": "None",
+        "expiryDate": null,
+        "completedDate": "2024-12-30T07:00:00Z"
+      }
+    },
+    "eventType": "QMS.UserCertificate.Create",
+    "eventTime": "2025-02-28T13:14:51.9320597Z",
+    "dataVersion": "1"
+  }
 }

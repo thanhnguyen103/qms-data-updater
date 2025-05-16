@@ -1,0 +1,54 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/QMS-Data-Updater.sln",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary;ForceNoAlign"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "publish",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "publish",
+                "${workspaceFolder}/QMS-Data-Updater.sln",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary;ForceNoAlign"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "func: host start",
+            "type": "shell",
+            "command": "func",
+            "args": [
+                "host",
+                "start",
+                "--pause-on-error"
+            ],
+            "options": {
+                "cwd": "${input:functionsProjectPath}"
+            },
+            "problemMatcher": []
+        }
+    ],
+    "inputs": [
+        {
+            "id": "functionsProjectPath",
+            "type": "pickString",
+            "description": "Select the Azure Functions project folder",
+            "options": [
+                "mocks/asb",
+                "mocks/events-disptacher"
+            ]
+        }
+    ]
+}
