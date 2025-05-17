@@ -8,7 +8,7 @@ using Azure.Core.Diagnostics;
 public class ServiceBusEmulatorRefinedTester
 {
     // Use the emulator's connection string or your Azure Service Bus connection string
-    private const string ServiceBusEmulatorConnectionString = "your-service-bus-connection-string";
+    private const string ServiceBusEmulatorConnectionString = "Endpoint=sb://localhost:5672;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;";
 
     // Specify your topic and subscription names
     private const string TestTopicName = "topic.1";

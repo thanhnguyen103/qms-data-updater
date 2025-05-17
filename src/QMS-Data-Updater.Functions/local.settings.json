@@ -3,7 +3,7 @@
     "Values": {
         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
         "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
-        "ServiceBusConnectionString": "<your-service-bus-connection-string>",
+        "ServiceBusConnectionString": "Endpoint=sb://localhost:5672;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;",
         "ServiceBusTopicName": "topic.1",
         "ServiceBusSubscriptionName": "subscription.1",
         "DefaultConnection": "<your-sql-connection-string>"

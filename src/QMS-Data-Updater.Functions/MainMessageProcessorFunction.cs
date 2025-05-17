@@ -33,6 +33,17 @@ public class MainMessageProcessorFunction
     {
         try
         {
+            if (message.DeliveryCount > 5) // for example, limit to 5 attempts
+            {
+                _logger.LogWarning("Message {MessageId} exceeded max delivery attempts. Sending to DLQ.", message.MessageId);
+                await messageActions.DeadLetterMessageAsync(message, new Dictionary<string, object>
+                {
+                    { "DeadLetterReason", "MaxDeliveryAttemptsExceeded" },
+                    { "DeadLetterErrorDescription", "The message exceeded the maximum number of delivery attempts." }
+                });
+                return;
+            }
+
             _logger.LogInformation("Message ID: {id}", message.MessageId);
             _logger.LogInformation("Message Body: {body}", message.Body);
 
@@ -107,17 +118,6 @@ public class MainMessageProcessorFunction
                 { "OriginalExceptionType", ex.GetType().ToString() },
                 { "OriginalExceptionMessage", ex.Message }
             });
-        }
-
-        if (message.DeliveryCount > 5) // for example, limit to 5 attempts
-        {
-            _logger.LogWarning("Message {MessageId} exceeded max delivery attempts. Sending to DLQ.", message.MessageId);
-            await messageActions.DeadLetterMessageAsync(message, new Dictionary<string, object>
-            {
-                { "DeadLetterReason", "MaxDeliveryAttemptsExceeded" },
-                { "DeadLetterErrorDescription", "The message exceeded the maximum number of delivery attempts." }
-            });
-            return;
         }
     }
     
